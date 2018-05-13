@@ -20,6 +20,10 @@
   "homepage": "https://github.com/codeBelt/webpack-4-starter#readme",
   "devDependencies": {
     "@types/lodash-es": "4.17.0",
+    "css-loader": "0.28.11",
+    "node-sass": "4.9.0",
+    "sass-loader": "7.0.1",
+    "style-loader": "0.21.0",
     "ts-loader": "4.3.0",
     "typescript": "2.8.3",
     "webpack": "4.8.3",

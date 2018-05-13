@@ -1,3 +1,5 @@
+import './scss/style.scss'
+
 import groupBy from 'lodash-es/groupBy'
 import people from './people'
 
