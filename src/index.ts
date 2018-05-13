@@ -1,11 +1,13 @@
 import './scss/style.scss'
 
-import groupBy from 'lodash-es/groupBy'
-import people from './people'
+const button = document.createElement("button")
+button.textContent = 'Open chat'
+document.body.appendChild(button)
 
-const managerGroups = groupBy(people, 'manager');
+button.onclick = () => {
+    import(/* webpackChunkName: "chat" */ "./chat").then(chat => {
+        chat.init()
+    })
+}
 
-const root = document.createElement('div');
-root.innerHTML = `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`;
-document.body.appendChild(root);
-console.log(`asdf`);
+
