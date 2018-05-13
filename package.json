@@ -1,0 +1,19 @@
+{
+  "name": "@sjs/webpack-4-starter",
+  "version": "1.0.0",
+  "description": "Webpack 4 Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeBelt/webpack-4-starter.git"
+  },
+  "author": "codeBelt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeBelt/webpack-4-starter/issues"
+  },
+  "homepage": "https://github.com/codeBelt/webpack-4-starter#readme"
+}
