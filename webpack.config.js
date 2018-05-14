@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // https://www.sitepoint.com/beginners-guide-webpack-module-bundling/
 
@@ -18,7 +19,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js', ".css", ".scss"]
     },
 
     module: {
@@ -48,7 +49,11 @@ module.exports = {
             },
             {
                 test: /\.s?css$/,
-                use: [{loader: 'style-loader'}, {loader: 'css-loader'}, {loader: 'sass-loader'}]
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
+                ]
             }
         ]
     },
@@ -58,7 +63,12 @@ module.exports = {
 
         new HtmlWebPackPlugin({
             template: './src/index.html',
+        }),
+
+        new MiniCssExtractPlugin({
+            filename: '[name].[chunkhash].css',
         })
+
     ]
 
 };
