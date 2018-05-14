@@ -4,7 +4,7 @@
   "description": "Webpack 4 Typescript",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server --mode development",
+    "serve": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development --watch",
     "prod": "webpack --mode production"
   },
