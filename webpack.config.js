@@ -5,6 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // https://www.sitepoint.com/beginners-guide-webpack-module-bundling/
 
+const NODE_ENV = process.env.NODE_ENV || 'production';
+const isProduction = (NODE_ENV === 'production');
+const isDevelopment = (NODE_ENV === 'development');
+
 module.exports = {
 
     entry: {
@@ -14,7 +18,7 @@ module.exports = {
     output: {
         // pathinfo: false,
         filename: '[name].[chunkhash].js',
-        chunkFilename: '[name].[chunkhash].js',
+        // chunkFilename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
     },
 
@@ -50,8 +54,15 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            camelCase: 'dashes',
+                            minimize: true
+                        }
+                    },
                     'sass-loader',
                 ]
             }
@@ -69,6 +80,20 @@ module.exports = {
             filename: '[name].[chunkhash].css',
         })
 
-    ]
+    ],
+
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    enforce: true,
+                    chunks: 'all'
+                }
+            }
+        }
+    },
 
 };
