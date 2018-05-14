@@ -1,5 +1,6 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // https://www.sitepoint.com/beginners-guide-webpack-module-bundling/
 
@@ -11,7 +12,7 @@ module.exports = {
 
     output: {
         // pathinfo: false,
-        filename: '[name].bundle.js', // '[name].[chunkhash].js'
+        filename: '[name].[chunkhash].js',
         chunkFilename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
     },
@@ -22,6 +23,17 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            minimize: false
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.tsx?$/,
                 use: [
@@ -42,6 +54,11 @@ module.exports = {
     },
 
     plugins: [
+        new CleanWebpackPlugin(['dist']),
+
+        new HtmlWebPackPlugin({
+            template: './src/index.html',
+        })
     ]
 
 };
