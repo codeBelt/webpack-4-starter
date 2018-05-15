@@ -1,14 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './scss/style.scss';
+import App from './scripts/App';
 
-const button = document.createElement('button');
-button.textContent = 'Open chat';
-document.body.appendChild(button);
+const app = new App();
 
-button.onclick = () => {
-    import(/* webpackChunkName: 'chat' */ './chat').then(chat => {
-        chat.init()
-    })
-};
-
-
+if (module.hot) {
+    module.hot.accept()
+}
