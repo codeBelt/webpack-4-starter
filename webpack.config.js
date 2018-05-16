@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
                     include: path.join(__dirname, 'src'),
                 },
                 {
-                    test: /\.s?css$/,
+                    test: /\.s?[ac]ss$/,
                     use: [
                         isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
                         {
@@ -137,8 +137,9 @@ module.exports = (env, argv) => {
                     vendors: {
                         test: /[\\/]node_modules[\\/]/,
                         name: 'vendors',
-                        chunks: 'all'
-                    }
+                        chunks: 'all',
+                        enforce: true,
+                    },
                 }
             }
         },
