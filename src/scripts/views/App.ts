@@ -5,10 +5,10 @@ export default class App {
         button.textContent = 'Open chat';
         document.body.appendChild(button);
 
-        button.onclick = () => {
-            import(/* webpackChunkName: 'chat' */ './chat').then(chat => {
-                chat.init()
-            })
+        button.onclick = async () => {
+            const chat = await import(/* webpackChunkName: 'chat' */ './chat');
+
+            chat.init();
         };
     }
 

@@ -137,7 +137,6 @@ module.exports = (env, argv) => {
                     vendors: {
                         test: /[\\/]node_modules[\\/]/,
                         name: 'vendors',
-                        enforce: true,
                         chunks: 'all'
                     }
                 }
