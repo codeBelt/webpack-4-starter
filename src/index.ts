@@ -1,9 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './scss/style.scss';
+import './styles/style.scss';
 import App from './scripts/App';
 
-const app = new App();
+(async (window: Window) => {
 
-if (module.hot) {
-    module.hot.accept()
-}
+    const app = new App();
+
+    if (module.hot) {
+        module.hot.accept()
+    }
+
+
+})(window);

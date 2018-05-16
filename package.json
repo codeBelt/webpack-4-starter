@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "webpack-dev-server --mode development --open",
-    "dev": "webpack --mode development --watch",
+    "stage": "webpack --mode none",
     "prod": "webpack --mode production"
   },
   "repository": {
@@ -19,14 +19,17 @@
   },
   "homepage": "https://github.com/codeBelt/webpack-4-starter#readme",
   "devDependencies": {
-    "@types/lodash-es": "4.17.0",
+    "@types/lodash": "4.14.108",
     "@types/webpack-env": "1.13.6",
     "clean-webpack-plugin": "0.1.19",
+    "copy-webpack-plugin": "4.5.1",
     "css-loader": "0.28.11",
     "html-loader": "0.5.5",
+    "html-webpack-harddisk-plugin": "0.2.0",
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "0.4.0",
     "node-sass": "4.9.0",
+    "robotstxt-webpack-plugin": "4.0.1",
     "sass-loader": "7.0.1",
     "style-loader": "0.21.0",
     "ts-loader": "4.3.0",
@@ -38,6 +41,6 @@
   },
   "dependencies": {
     "bootstrap": "4.1.1",
-    "lodash-es": "4.17.10"
+    "lodash": "4.17.10"
   }
 }
