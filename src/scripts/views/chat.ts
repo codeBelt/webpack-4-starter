@@ -1,4 +1,4 @@
-import people from "./people"
+import people from "../data/people"
 
 export function init() {
     const root = document.createElement("div");

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './styles/style.scss';
-import App from './scripts/App';
+import '../styles/style.scss';
+import App from './views/App';
 
 (async (window: Window) => {
 

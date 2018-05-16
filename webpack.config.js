@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
     return {
 
         entry: {
-            main: './src/index.ts',
+            main: './src/scripts/main.ts',
         },
 
         output: {
