@@ -30,7 +30,7 @@ module.exports = (env, argv) => {
         },
 
         resolve: {
-            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.styles'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },
 
         module: {
@@ -66,8 +66,7 @@ module.exports = (env, argv) => {
                         {
                             loader: 'css-loader',
                             options: {
-                                modules: true,
-                                camelCase: 'dashes',
+                                modules: false, // If true it will add bootstrap css stuff to the vendors js file.
                                 minimize: isProduction,
                                 sourceMap: !isProduction,
                             }
