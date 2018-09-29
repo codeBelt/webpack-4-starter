@@ -60,13 +60,12 @@ module.exports = (env, argv) => {
                     include: path.join(__dirname, 'src'),
                 },
                 {
-                    test: /\.s?[ac]ss$/,
+                    test: /^(?!.*?\.module).*\.s?[ac]ss$/,
                     use: [
                         isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
                         {
                             loader: 'css-loader',
                             options: {
-                                modules: false, // If true it will add bootstrap css stuff to the vendors js file.
                                 minimize: isProduction,
                                 sourceMap: !isProduction,
                             }
@@ -74,9 +73,30 @@ module.exports = (env, argv) => {
                         {
                             loader: 'sass-loader',
                             options: {
-                                sourceMap: !isProduction
+                                sourceMap: !isProduction,
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.module\.s?[ac]ss$/,
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                localIdentName: '[name]__[local]--[hash:base64:5]',
+                                minimize: isProduction,
+                                sourceMap: !isProduction,
                             }
                         },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: !isProduction,
+                            }
+                        }
                     ]
                 }
             ]

@@ -4,9 +4,9 @@
   "description": "Webpack 4 Typescript",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server --mode development --open",
-    "stage": "webpack --mode none",
-    "prod": "webpack --mode production"
+    "start": "webpack-dev-server --mode development --open",
+    "build:stage": "webpack --mode none",
+    "build:prod": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/codeBelt/webpack-4-starter#readme",
   "devDependencies": {
-    "@types/lodash-es": "4.17.0",
     "@types/webpack-env": "1.13.6",
     "clean-webpack-plugin": "0.1.19",
     "copy-webpack-plugin": "4.5.1",
@@ -40,7 +39,7 @@
     "webpack-env": "0.8.0"
   },
   "dependencies": {
-    "bootstrap": "4.1.1",
-    "lodash-es": "4.17.10"
+    "purecss": "1.0.0",
+    "reset-css": "4.0.1"
   }
 }
