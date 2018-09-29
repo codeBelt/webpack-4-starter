@@ -72,6 +72,9 @@ module.exports = (env, argv) => {
                         },
                         {
                             loader: 'sass-loader',
+                            options: {
+                                sourceMap: !isProduction,
+                            }
                         }
                     ]
                 },
@@ -90,6 +93,9 @@ module.exports = (env, argv) => {
                         },
                         {
                             loader: 'sass-loader',
+                            options: {
+                                sourceMap: !isProduction,
+                            }
                         }
                     ]
                 }
