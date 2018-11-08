@@ -3,10 +3,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackHardDiskPlugin = require('html-webpack-harddisk-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 const path = require('path');
 const webpack = require('webpack');
 const pkg = require('./package.json');
-const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 
 // https://www.sitepoint.com/beginners-guide-webpack-module-bundling/
 
@@ -104,10 +104,6 @@ module.exports = (env, argv) => {
 
         plugins: [
             new CleanWebpackPlugin(['dist']),
-
-            new webpack.DefinePlugin({
-                'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
-            }),
 
             isDevelopment
                 ? new webpack.HotModuleReplacementPlugin()
